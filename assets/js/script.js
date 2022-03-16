@@ -1,7 +1,8 @@
 var startQuiz = document.getElementById("start");
-var timer = document.getElementById("countdown");
+var timerVar = document.getElementById("countdown");
 var timeLeft = 60;
 var quizQuestions = document.querySelector("#container");
+var defaultTime;
 const questions = [
     {
         question: "What does DOM stand for?",
@@ -62,3 +63,14 @@ const questions = [
     answer: "a"
     },
 ]
+
+function timerVar() {
+    defaultTime = setInterval(function() {
+        if (timeLeft > 1) {
+            timerVar.textContent = "Time: " + timeLeft + "seconds";
+            timeLeft--;
+        } else {
+            timerVar.textContent = "Time: " + timeLeft + "second";
+            timeLeft--;
+    }}, 1000);
+}
