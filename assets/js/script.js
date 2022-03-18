@@ -64,6 +64,7 @@ const questions = [
     },
 ]
 
+//Create timer
 function timerVar() {
     defaultTime = setInterval(function() {
         if (timeLeft > 1) {
@@ -71,6 +72,14 @@ function timerVar() {
             timeLeft--;
         } else {
             timerVar.textContent = "Time: " + timeLeft + "second";
-            timeLeft--;
+            testEnd();
     }}, 1000);
+}
+
+function  timeLeft(amount) {
+    timeLeft += amount;
+    if (timeLeft < 0) {
+        timeLeft = 0;
+    }
+    timerEl.textContent = "Time remaining: " + timeLeft + "seconds";
 }
