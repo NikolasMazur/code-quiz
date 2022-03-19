@@ -77,3 +77,9 @@ function clearElement() {
     quizQuestions.innerHTML="";
     document.querySelector("#main").style.display = "none";
 }
+
+var quiz = function (event) {
+    event.preventDefault();
+    clearElement();
+    renderQuestion(questions[currentQuestionIndex]);
+};
