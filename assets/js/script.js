@@ -109,6 +109,12 @@ var renderQuestion = function (question) {
     var answerD = document.createElement("button");
     answerD.textContent = question.d;
     answerD.addEventListener("click", answerClick);
+
+        quizQuestions.appendChild(questionHeader);
+        quizQuestions.appendChild(answerA);
+        quizQuestions.appendChild(answerB);
+        quizQuestions.appendChild(answerC);
+        quizQuestions.appendChild(answerD);
 }
 
 // Determines if an answer is correct, if yes then it adds +1 to userScore, if not it takes -1 from userScore as well as 10 seconds from remainingTime.
