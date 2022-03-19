@@ -4,8 +4,6 @@ var timeLeft = 60;
 var quizQuestions = document.querySelector("#container");
 var defaultTime;
 var currentQuestionIndex = 0;
-var correctAnswer = questions[currentQuestionIndex].correct;
-var userScore = 0;
 var questions = [{
         question: "What does DOM stand for?",
         a: "Disfunctional Operation Module",
@@ -74,6 +72,9 @@ function  adjustTime(amount) {
 }
 startQuiz.onclick = timer;
 
+var correctAnswer = questions[currentQuestionIndex].correct;
+var userScore = 0;
+
 // Clears header and paragraph elements in 'id = "main"'
 function clearElement() {
     quizQuestions.innerHTML="";
@@ -85,9 +86,6 @@ var quiz = function (event) {
     clearElement();
     renderQuestion(questions[currentQuestionIndex]);
 };
-
-// Starts quiz
-startQuiz.addEventListener('click', quiz);
 
 // Creates header and buttons for when the test starts
 var renderQuestion = function (question) {
@@ -112,3 +110,29 @@ var renderQuestion = function (question) {
     answerD.textContent = question.d;
     answerD.addEventListener("click", answerClick);
 }
+
+// Determines if an answer is correct, if yes then it adds +1 to userScore, if not it takes -1 from userScore as well as 10 seconds from remainingTime.
+var answerClick = function(event) {
+    event.preventDefault();
+    var userAnswer = event.target.textContent;
+    correctAnswer = questions[currentQuestionIndex].correct;
+    var answerDetermination = document.querySelector("#answers");
+    if (userAnswer !== correctAnswer) {
+        adjustTime(-10);
+        userScore--;
+        currentQuestionIndex++;
+        if (currentQuestionIndex >= questions.length) {
+            endQuizPage();
+        } else {renderQuestion(questions[currentQuestionIndex])};
+    }
+    else if (userAnswer === correctAnswer) {
+        currentQuestionIndex++;
+        userScore++;
+        if (currentQuestionIndex >= questions.length) {
+            endQuizPage();
+        } else {renderQuestion(questions[currentQuestionIndex])};
+    }
+};
+
+// Starts quiz
+startQuiz.addEventListener('click', quiz);
