@@ -87,3 +87,26 @@ var quiz = function (event) {
 // Starts quiz
 startQuiz.addEventListener('click', quiz);
 
+// Creates header and buttons for when the test starts
+var renderQuestion = function (question) {
+    quizQuestions.innerHTML = "";
+
+    var questionHeader = document.createElement("h2");
+    questionHeader.textContent = question.question;
+
+    var answerA = document.createElement("button");
+    answerA.textContent = question.a;
+    answerA.addEventListener("click", answerClick);
+
+    var answerB = document.createElement("button");
+    answerB.textContent = question.b;
+    answerB.addEventListener("click", answerClick);
+
+    var answerC = document.createElement("button");
+    answerC.textContent = question.c;
+    answerC.addEventListener("click", answerClick);
+
+    var answerD = document.createElement("button");
+    answerD.textContent = question.d;
+    answerD.addEventListener("click", answerClick);
+}
