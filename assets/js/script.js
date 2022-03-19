@@ -4,6 +4,7 @@ var timeLeft = 60;
 var quizQuestions = document.querySelector("#container");
 var defaultTime;
 var currentQuestionIndex = 0;
+var correctAnswer = questions[currentQuestionIndex].correct;
 var questions = [{
         question: "What does DOM stand for?",
         a: "Disfunctional Operation Module",
