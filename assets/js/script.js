@@ -134,6 +134,7 @@ var answerClick = function(event) {
     }
 };
 
+var initials; 
 // Functionality to end quiz when questions are finished or time runs out
 function endQuizPage() {
     clearElement();
