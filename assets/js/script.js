@@ -134,5 +134,51 @@ var answerClick = function(event) {
     }
 };
 
+// Functionality to end quiz when questions are finished or time runs out
+function endQuizPage() {
+    clearElement();
+    timerVar.textContent = "";
+    clearInterval(defaultTime);
+    var endPage = document.createElement("h2");
+    quizQuestions.appendChild(endPage);
+
+    let blank = document.querySelector("#answers");
+    blank.innerHTML = "";
+
+    endPage.innerHTML = "Final score is " + userScore + ". Enter your initials to save";
+
+    var initialBox = document.createElement("input");
+    blank.appendChild(initialBox);
+
+    // Creates submit button
+    var submitInitialBtn = document.createElement("button");
+    submitInitialBtn.textContent = "Submit";
+    blank.appendChild(submitInitialBtn);
+
+    submitInitialBtn.addEventListener("click", () => {
+        
+        if (initialBox.value.length === 0) return false;
+
+        let storeInitials = (...input) => {
+            let data = JSON.stringify({ "name":input[0], "score":input[1]})
+            localStorage.setItem("object", data)
+        }
+        storeInitials(initialBox.value, userScore);
+
+        var playAgain = document.createElement("button");
+        playAgain.textContent= "Play Again!";
+        blank.appendChild(playAgain);
+
+        playAgain.addEventListener("click", () => {
+            location.reload();
+        })
+    });
+
+    document.querySelector("input").value = "";
+
+    initialBox.addEventListener("submit", endQuizPage);
+    
+};
+
 // Starts quiz
 startQuiz.addEventListener('click', quiz);
