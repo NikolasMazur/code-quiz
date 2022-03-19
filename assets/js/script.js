@@ -65,21 +65,20 @@ const questions = [
 ]
 
 //Create timer
-function timerVar() {
+function timer() {
     defaultTime = setInterval(function() {
-        if (timeLeft > 1) {
-            timerVar.textContent = "Time: " + timeLeft + "seconds";
-            timeLeft--;
+        if (timeLeft > 0) {
+            timerVar.textContent = "Time: " + timeLeft + " seconds";
+            adjustTime(-1);
         } else {
-            timerVar.textContent = "Time: " + timeLeft + "second";
             testEnd();
     }}, 1000);
 }
 
-function  timeLeft(amount) {
+function  adjustTime(amount) {
     timeLeft += amount;
     if (timeLeft < 0) {
         timeLeft = 0;
     }
-    timerEl.textContent = "Time remaining: " + timeLeft + "seconds";
+    timerVar.textContent = "Time: " + timeLeft + " seconds";
 }
