@@ -83,3 +83,7 @@ var quiz = function (event) {
     clearElement();
     renderQuestion(questions[currentQuestionIndex]);
 };
+
+// Starts quiz
+startQuiz.addEventListener('click', quiz);
+
