@@ -72,11 +72,8 @@ function  adjustTime(amount) {
 }
 startQuiz.onclick = timer;
 
-// var score = 0;
-// document.getElementById("answersCheck").onclick = function() {
-//     var answers = document.getElementById("answers").value;
-// }
-
-// if (score === "true") {
-//     score++;
-// }
+// Clears header and paragraph elements in 'id = "main"'
+function clearElement() {
+    quizQuestions.innerHTML="";
+    document.querySelector("#main").style.display = "none";
+}
