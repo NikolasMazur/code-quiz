@@ -74,6 +74,7 @@ startQuiz.onclick = timer;
 
 var correctAnswer = questions[currentQuestionIndex].correct;
 var userScore = 0;
+var clickViewScores = document.getElementById("highscores");
 
 // Clears header and paragraph elements in 'id = "main"'
 function clearElement() {
