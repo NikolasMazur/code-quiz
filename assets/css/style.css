@@ -1,14 +1,13 @@
 /* Universal */
 * {
     box-sizing: border-box;
+    background-color: aquamarine;
   }
   
-  main {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-  }
-  
-#container {
+#main {
+  text-align: center;
+}
 
+#scores {
+  text-align: center;
 }
