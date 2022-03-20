@@ -82,6 +82,19 @@ function clearElement() {
     document.querySelector("#main").style.display = "none";
 }
 
+// Adds highscore button and displays highscores
+function highScores() {
+    let data = localStorage.getItem("object");
+    let getData = JSON.parse(data);
+    let name = getData.name;
+    let score = getData.score;
+    quizQuestions.innerHTML = "";
+    quizQuestions.innerHTML = name + " " + score;
+}
+clickViewScores.addEventListener("click", () => {
+    highScores();
+})
+
 var quiz = function (event) {
     event.preventDefault();
     clearElement();
